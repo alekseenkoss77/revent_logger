@@ -1,0 +1,12 @@
+version: '3'
+services:
+  elastic:
+    image: elasticsearch-kibana
+  web:
+    build: .
+    volumes:
+      - .:/elastic_logger
+    depends_on:
+      - elastic
+    links:
+      - elastic
